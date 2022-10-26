@@ -1,4 +1,8 @@
 package eja03colecciones;
+
+import Entidad.Servicio.ServicioAlumnos;
+
+
 /**
  * @author Tonna/SA FR34K
  */
@@ -14,11 +18,15 @@ final y se lo busca en la lista de Alumnos. Si está en la lista, se llama al m�
 del método se usará la lista notas para calcular el promedio final de alumno. Siendo este
 promedio final, devuelto por el método y mostrado en el main.*/
 public class EjA03Colecciones {
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-    }
-
+        ServicioAlumnos datos = new ServicioAlumnos();
+        datos.IngresoAlumnos();
+        datos.mostrar();
+        datos.Promedio();
+    
+}
 }
