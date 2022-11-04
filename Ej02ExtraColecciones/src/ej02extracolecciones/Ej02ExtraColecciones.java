@@ -1,6 +1,6 @@
 package ej02extracolecciones;
-
 import Entidad.Servicio.ServicioFicha;
+import Entidad.Servicio.ServicioFicha2;
 
 /**
  * @author Tonna/SA FR34K
@@ -21,14 +21,22 @@ public class Ej02ExtraColecciones {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        ServicioFicha datos = new ServicioFicha();
+    public static void main(String[] args) throws InterruptedException{
+        ServicioFicha2 datos = new ServicioFicha2();
         datos.CargaFicha();
         datos.GirarFicha();
         datos.EsDoble();
         datos.FichasD();
         datos.ManoRobot();
         datos.PrimerFicha();
-        //datos.Jugadas();
+        datos.Jugadas();
+//        ServicioFicha datos = new ServicioFicha();
+//        datos.CargaFicha();
+//        datos.GirarFicha();
+//        datos.EsDoble();
+//        datos.FichasD();
+//        datos.ManoRobot();
+//        datos.PrimerFicha();
+//        datos.Jugadas();
     }
 }

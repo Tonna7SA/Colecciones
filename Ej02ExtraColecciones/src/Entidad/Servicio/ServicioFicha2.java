@@ -3,20 +3,21 @@ package Entidad.Servicio;
 import Entidad.Ficha;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
  *
  * @author Tonna/SA FR34K
  */
-/**/
-public class ServicioFicha {
+/*Mismo uso que ServicioFicha, pero con LinkedList....*/
+public class ServicioFicha2 {
 
-    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+Scanner leer = new Scanner(System.in).useDelimiter("\n");
     Ficha d1 = new Ficha();
     ArrayList<String> FichasDomino = new ArrayList();
-    ArrayList<String> Mesa = new ArrayList();
-    ArrayList<String> ManoRobot = new ArrayList();
+    LinkedList<String> Mesa = new LinkedList();
+    LinkedList<String> ManoRobot = new LinkedList();
 
     public Ficha CargaFicha() {
         d1.setNum1(String.valueOf((int) (Math.random() * 6)));
@@ -104,7 +105,7 @@ public class ServicioFicha {
             if (ubicacion != 0) {
                 System.out.println("Mayor Ficha doble del Robot, para empezar");
                 System.out.println("[" + ManoRobot.get(ubicacion - 1) + "]");
-                Mesa.add(ManoRobot.get(ubicacion - 1));
+                Mesa.addFirst(ManoRobot.get(ubicacion - 1));
                 ManoRobot.remove(ubicacion - 1);
                 b = 1;
                 Jugadas();
@@ -163,37 +164,33 @@ public class ServicioFicha {
             do {
                 int b = 0;
                 for (int i = 0; i < ManoRobot.size(); i++) {
-                    if (Mesa.get(a).substring(2, 3).equals(ManoRobot.get(i).substring(0, 1))) {
-                        Mesa.add(a + 1, ManoRobot.get(i));
+                    if (Mesa.getLast().substring(2, 3).equals(ManoRobot.get(i).substring(0, 1))) {
+                        Mesa.addLast(ManoRobot.get(i));
                         ManoRobot.remove(i);
-                        a++;
                         b++;
                         break;
                     }
                 }
                 for (int i = 0; i < ManoRobot.size(); i++) {
-                    if (Mesa.get(0).substring(0, 1).equals(ManoRobot.get(i).substring(2, 3))) {
-                        Mesa.add(0, ManoRobot.get(i));
+                    if (Mesa.getFirst().substring(0, 1).equals(ManoRobot.get(i).substring(2, 3))) {
+                        Mesa.addFirst(ManoRobot.get(i));
                         ManoRobot.remove(i);
-                        a++;
                         b++;
                         break;
                     }
                 }
                 for (int i = 0; i < ManoRobot.size(); i++) {
-                    if (Mesa.get(a).substring(2, 3).equals(ManoRobot.get(i).substring(2, 3))) {
-                        Mesa.add(a + 1, ManoRobot.get(i).substring(2, 3) + ":" + ManoRobot.get(i).substring(0, 1));
+                    if (Mesa.getLast().substring(2, 3).equals(ManoRobot.get(i).substring(2, 3))) {
+                        Mesa.addLast(ManoRobot.get(i).substring(2, 3) + ":" + ManoRobot.get(i).substring(0, 1));
                         ManoRobot.remove(i);
-                        a++;
                         b++;
                         break;
                     }
                 }
                 for (int i = 0; i < ManoRobot.size(); i++) {
-                    if (Mesa.get(0).substring(0, 1).equals(ManoRobot.get(i).substring(0, 1))) {
-                        Mesa.add(0, ManoRobot.get(i).substring(2, 3) + ":" + ManoRobot.get(i).substring(0, 1));
+                    if (Mesa.getFirst().substring(0, 1).equals(ManoRobot.get(i).substring(0, 1))) {
+                        Mesa.addFirst(ManoRobot.get(i).substring(2, 3) + ":" + ManoRobot.get(i).substring(0, 1));
                         ManoRobot.remove(i);
-                        a++;
                         b++;
                         break;
                     }
@@ -240,3 +237,4 @@ public class ServicioFicha {
         }
     }
 }
+
