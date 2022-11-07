@@ -76,10 +76,10 @@ public class ServicioBarcelona {
 
     public void AgregarJugador() {
         int a = 0;
-        for (String aux : lista) {
-            if (aux.contains(listanueva.toString())) {
-                System.out.println("Los jugadores estan en la lista");
-                a = 1;
+       Iterator <String> it = lista.iterator();
+       while(it.hasNext()){
+           if(listanueva.contains(it.next())){
+                a++;
             }
         }
         if (a == 0) {
@@ -88,6 +88,9 @@ public class ServicioBarcelona {
                 lista.add(recorrer.next());
                 recorrer.remove();
             }
+                    
+        }else{
+            System.out.println("Los jugadores estan en la lista");
         }
         System.out.println("Los jugadores de la lista 2, se agregaran a la lista original...");
         System.out.println("La cantidad de jugadores de la lista nueva, es: " + listanueva.size());
